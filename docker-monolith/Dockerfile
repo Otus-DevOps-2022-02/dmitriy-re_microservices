@@ -3,6 +3,8 @@ FROM ubuntu:18.04
 RUN apt-get update
 RUN apt-get install -y mongodb-server ruby-full ruby-dev build-essential git
 RUN gem install bundler
+RUN gem update --system 3.2.3
+RUN gem install mongo
 RUN git clone -b monolith https://github.com/express42/reddit.git
 
 COPY mongod.conf /etc/mongod.conf
